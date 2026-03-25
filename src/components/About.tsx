@@ -37,6 +37,69 @@ export function About() {
               <span className="italic font-light block opacity-70">ABOUT</span>
               <span>ME</span>
             </motion.h2>
+
+            {/* Laptop SVG with Terminal */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0, rotate: -5 }}
+              whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-12 relative w-full max-w-[400px]"
+            >
+              <svg viewBox="0 0 800 500" className="w-full h-auto drop-shadow-2xl">
+                {/* Laptop Screen */}
+                <rect x="100" y="50" width="600" height="380" rx="20" fill="#2a2a2a" stroke="#444" strokeWidth="4" />
+                <rect x="115" y="65" width="570" height="350" rx="10" fill="#000" />
+                
+                {/* Terminal Window Header */}
+                <rect x="115" y="65" width="570" height="30" rx="10" fill="#333" />
+                <circle cx="135" cy="80" r="5" fill="#ff5f56" />
+                <circle cx="155" cy="80" r="5" fill="#ffbd2e" />
+                <circle cx="175" cy="80" r="5" fill="#27c93f" />
+                
+                {/* Terminal Text Lines */}
+                <g className="font-mono text-[14px]">
+                  <motion.rect 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 150 }}
+                    transition={{ duration: 0.8, delay: 1 }}
+                    x="130" y="115" height="12" rx="2" fill="#50fa7b" opacity="0.8" 
+                  />
+                  <motion.rect 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 280 }}
+                    transition={{ duration: 1, delay: 1.5 }}
+                    x="130" y="145" height="12" rx="2" fill="#f8f8f2" opacity="0.6" 
+                  />
+                  <motion.rect 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 200 }}
+                    transition={{ duration: 0.8, delay: 2.2 }}
+                    x="130" y="175" height="12" rx="2" fill="#bd93f9" opacity="0.8" 
+                  />
+                  <motion.rect 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 320 }}
+                    transition={{ duration: 1.2, delay: 2.8 }}
+                    x="130" y="205" height="12" rx="2" fill="#f8f8f2" opacity="0.6" 
+                  />
+                  
+                  {/* Blinking Cursor */}
+                  <motion.rect
+                    animate={{ opacity: [1, 0, 1] }}
+                    transition={{ duration: 0.8, repeat: Infinity }}
+                    x="130" y="235" width="10" height="18" fill="#50fa7b"
+                  />
+                </g>
+
+                {/* Laptop Base */}
+                <path d="M50 430 L750 430 L780 470 L20 470 Z" fill="#333" stroke="#444" strokeWidth="2" />
+                <rect x="350" y="430" width="100" height="10" rx="5" fill="#222" />
+              </svg>
+              
+              {/* Decorative Glow */}
+              <div className="absolute inset-0 bg-blue-500/20 blur-[100px] -z-10 rounded-full" />
+            </motion.div>
           </div>
 
           <div className="flex flex-col gap-12">
