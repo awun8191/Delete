@@ -24,10 +24,10 @@ export function ProjectCard({ title, description, tech, image, link, github, ind
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative flex flex-col w-full rounded-3xl overflow-hidden bg-card border border-border"
+      className="group relative flex flex-col w-full h-full rounded-[2.5rem] overflow-hidden bg-background border border-border hover:border-foreground/20 transition-all duration-500"
     >
       {/* Image Container */}
-      <a href={link} target="_blank" rel="noopener noreferrer" className="relative w-full aspect-[16/10] overflow-hidden bg-muted block">
+      <a href={link} target="_blank" rel="noopener noreferrer" className="relative w-full aspect-[16/9] overflow-hidden bg-muted block">
         <motion.img
           src={image}
           alt={title}
@@ -38,7 +38,7 @@ export function ProjectCard({ title, description, tech, image, link, github, ind
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/10 dark:bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
-        {/* Hover Content - "Visit site" button */}
+        {/* Hover Content */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0.9 }}
@@ -53,20 +53,20 @@ export function ProjectCard({ title, description, tech, image, link, github, ind
       </a>
 
       {/* Project Info */}
-      <div className="p-6 md:p-8 flex flex-col flex-grow">
-        <div className="flex justify-between items-start mb-4">
-          <h3 className="text-foreground font-semibold text-2xl tracking-tight">{title}</h3>
+      <div className="p-8 md:p-10 flex flex-col flex-grow">
+        <div className="flex justify-between items-start mb-6">
+          <h3 className="text-foreground font-bold text-3xl tracking-tight uppercase">{title}</h3>
           {github && (
-            <a href={github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a href={github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-full hover:bg-muted">
               <Github className="w-6 h-6" />
             </a>
           )}
         </div>
-        <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">{description}</p>
+        <p className="text-muted-foreground text-lg leading-relaxed mb-8 flex-grow font-light">{description}</p>
         
-        <div className="flex flex-wrap gap-2 mt-auto">
+        <div className="flex flex-wrap gap-3 mt-auto">
           {tech.map((t) => (
-            <span key={t} className="px-3 py-1 rounded-full bg-muted text-muted-foreground text-xs font-medium tracking-wide">
+            <span key={t} className="px-4 py-1.5 rounded-full bg-muted text-muted-foreground text-xs font-bold tracking-widest uppercase">
               {t}
             </span>
           ))}

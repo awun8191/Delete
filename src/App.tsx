@@ -10,9 +10,9 @@ export default function App() {
     <main className="relative min-h-screen bg-background text-foreground selection:bg-foreground selection:text-background transition-colors duration-300">
       <Navigation />
       <Hero />
-      <Projects />
-      <Skills />
       <About />
+      <Skills />
+      <Projects />
       <Footer />
     </main>
   );
